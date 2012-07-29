@@ -48,10 +48,10 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span2">
           <g:render template="sidebar" contextPath="/layouts/main/" />
         </div><!--/span-->
-        <div class="span9">
+        <div class="span10">
           <g:layoutBody />
         </div><!--/span-->
       </div><!--/row-->
@@ -60,7 +60,7 @@
     </div><!--/.fluid-container-->
     
     <footer>
-      <p>Nineteen hosting manager developed by Chris Kuehl for Design19.</p>
+      <p style="margin: 0px;">Nineteen hosting manager developed by Chris Kuehl for Design19.</p>
     </footer>
     
     <g:javascript library="application" />
