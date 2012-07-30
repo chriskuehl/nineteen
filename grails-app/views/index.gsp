@@ -13,9 +13,8 @@
       [
         title: "Accounts",
         links: [
-          [title: "List Accounts", url: [controller: "account", action: "list"]],
-          [title: "Add Account", url: [controller: "account", action: "add"]],
-          [title: "Remove Account", url: [controller: "account", action: "remove"]]
+          [title: "List Accounts", url: [controller: "account", action: "list"], icon: "group.png"],
+          [title: "Add Account", url: [controller: "account", action: "add"], icon: "group_add.png"]
         ]
       ],
 
@@ -23,9 +22,9 @@
       [
         title: "Server",
         links: [
-          [title: "View Stats", url: [controller: "server", action: "stats"]],
-          [title: "Manual Update", url: [controller: "server", action: "update"]],
-          [title: "Reboot", url: [controller: "server", action: "reboot"]]
+          [title: "View Stats", url: [controller: "server", action: "stats"], icon: "stats.png"],
+          [title: "Force Update", url: [controller: "server", action: "update"], icon: "update.png"],
+          [title: "Reboot", url: [controller: "server", action: "reboot"], icon: "reboot.png"]
         ]
       ]
     ]}" />
@@ -35,7 +34,10 @@
       
       <p>
         <g:each var="link" in="${section.links}">
-          <g:link url="${link.url}" class="btn">${link.title}</g:link>
+          <g:link url="${link.url}" class="btn">
+            <g:img dir="img" file="${link.icon}" />
+            ${link.title}
+          </g:link>
         </g:each>
       </p>
     </g:each>

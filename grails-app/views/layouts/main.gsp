@@ -52,6 +52,14 @@
           <g:render template="sidebar" contextPath="/layouts/main/" />
         </div><!--/span-->
         <div class="span10">
+          <g:each var="error" in="${params.errors}">
+            <div class="alert alert-error">${error}</div>
+          </g:each>
+          
+          <g:each var="error" in="${flash.errors}">
+            <div class="alert alert-error">${error}</div>
+          </g:each>
+          
           <g:layoutBody />
         </div><!--/span-->
       </div><!--/row-->

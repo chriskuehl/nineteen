@@ -2,16 +2,21 @@ package me.d19.nineteen
 
 class Account {
     static hasMany = [domains: Domain]
+    static constraints = {
+        name size: 2..15, blank: false, unique: true, matches: "[a-z0-9-]*"
+        title size: 2..20, blank: false, unique: true
+    }
     
     String name // cannot be changed after creation
     String title
+    
+    long cacheDiskUsage = 0
+    long cacheDatabaseUsage = 0
     
     // constructor
     Account(def name, def title) {
         this.name = name
         this.title = title
-        
-        save()
     }
     
     // domain management
