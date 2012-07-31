@@ -41,7 +41,5 @@
         </g:each>
       </p>
     </g:each>
-    
-    <p style="color: rgba(0, 0, 0, 0.5); font-size: 12px;">Icons by <a href="http://www.iconfinder.com/search/?q=iconset%3Afatcow">FatCow Web Hosting</a>.</p>
   </body>
 </html>

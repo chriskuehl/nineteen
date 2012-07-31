@@ -13,15 +13,9 @@ class Account {
     long cacheDiskUsage = 0
     long cacheDatabaseUsage = 0
     
-    // constructor
-    Account(def name, def title) {
-        this.name = name
-        this.title = title
-    }
-    
     // domain management
     void addDomain(Domain domain) {
-        
+        domains.add(domain)
     }
     
     // generate all config files and reload/update the appropriate services

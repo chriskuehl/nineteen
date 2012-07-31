@@ -19,7 +19,7 @@
       
       <g:each var="account" in="${me.d19.nineteen.Account.findAll(sort: "name")}">
         <tr>
-          <td><g:link action="view" params="${[id: account.id]}">${account.name}</g:link></td>
+          <td><g:link action="view" params="${[id: account.name]}">${account.name}</g:link></td>
           <td>${account.title}</td>
           <td>${formatBytes([bytes: account.cacheDiskUsage])}</td>
           <td>${formatBytes([bytes: account.cacheDatabaseUsage])}</td>

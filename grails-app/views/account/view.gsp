@@ -29,6 +29,27 @@
     <hr />
     
     <h3>Domains</h3>
+    <table class="table table-striped">
+      <tr>
+        <th>Domain Name</th>
+        <th>Root Name</th>
+        <th>Use WWW?</th>
+        <th>Use SSL?</th>
+      </tr>
+      
+      <g:each var="domain" in="${account.domains.sort {it.name}}">
+        <tr>
+          <td><g:link controller="domain" action="view" params="${[id: domain.name]}">${domain.name}</g:link></td>
+          <td>${domain.root}</td>
+          <td>${domain.useWWW}</td>
+          <td>${domain.sslCert != null}</td>
+        </tr>
+      </g:each>
+    </table>
     
+    <g:link controller="domain" action="add" params="${[id: account.name]}" class="btn">
+      <g:img dir="img" file="layout_add.png" />
+      Add Domain
+    </g:link>
   </body>
 </html>

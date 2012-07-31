@@ -15,7 +15,7 @@ class AccountController {
             
             if (account.validate()) {
                 account.save()
-                redirect(uri: "/")
+                redirect(action: "view", params: [id: account.name])
                 return
             } else {
                 params.errors = utilService.domainErrorsToList(account)
@@ -30,7 +30,7 @@ class AccountController {
     }
     
     def view() {
-        def account = Account.findById(params.id)
+        def account = Account.findByName(params.id)
         
         if (params.update) {
             account.title = params.title
