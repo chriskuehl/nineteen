@@ -12,4 +12,10 @@ class UserService {
     def getUserName(def username) {
         return "www-" + username
     }
+    
+    def createRoot(def username, def root) {
+        username = getUserName(username)
+        
+        execService.exec("user/create-root.sh " + username + " " + root)
+    }
 }

@@ -3,13 +3,14 @@ package me.d19.nineteen
 import java.text.SimpleDateFormat
 
 class Domain {
+    def nameserverService
+    def userService
+    
     static constraints = {
         name unique: true, blank: false
         root blank: false
         sslCert nullable: true
     }
-    
-    def nameserverService
     
     String name
     String root
@@ -18,6 +19,10 @@ class Domain {
     String serial = "1970010100"
     
     Account account
+    
+    def createRoot() {
+        userService.createRoot(account.name, root)
+    }
     
     def resetSerial() {
         def dateFormat = new SimpleDateFormat("yyyyMMdd")

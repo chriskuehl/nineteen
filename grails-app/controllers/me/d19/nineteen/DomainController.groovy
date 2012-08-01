@@ -20,6 +20,7 @@ class DomainController {
             if (domain.validate()) {
                 account.addDomain(domain)
                 domain.resetSerial()
+                domain.createRoot()
                 
                 account.save()
                 domain.save()
@@ -42,6 +43,7 @@ class DomainController {
             domain.useWWW = params.www ? true : false
             
             if (domain.validate()) {
+                domain.createRoot()
                 domain.save()
                 redirect(action: "view", params: [id: domain.name])
                 return
