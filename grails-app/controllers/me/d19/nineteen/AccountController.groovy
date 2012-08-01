@@ -37,13 +37,18 @@ class AccountController {
             
             if (account.validate()) {
                 account.save()
-                redirect(action: "view", params: [id: account.id])
+                redirect(action: "view", params: [id: account.name])
                 return
             } else {
                 flash.errors = utilService.domainErrorsToList(account)
-                redirect(action: "view", params: [id: account.id])
+                redirect(action: "view", params: [id: account.name])
                 return
             }
+        } else if (params.mysqlRegen) {
+            account.generateMySQLPassword()
+            account.save()
+            
+            redirect(action: "view", params: [id: account.name])
         }
         
         render(view: "view", model: [account: account])

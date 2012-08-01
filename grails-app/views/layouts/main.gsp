@@ -33,6 +33,9 @@
   </head>
   
   <body>
+    <g:javascript library="application" />
+    <r:layoutResources />
+    
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -70,8 +73,5 @@
     <footer>
       <p style="margin: 0px;">Nineteen hosting manager developed by Chris Kuehl for Design19. Icons by FatCow Web Hosting.</p>
     </footer>
-    
-    <g:javascript library="application" />
-    <r:layoutResources />
   </body>
 </html>

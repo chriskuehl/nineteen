@@ -10,11 +10,27 @@ class Account {
     String name // cannot be changed after creation
     String title
     
+    String mysqlPassword
+    
     long cacheDiskUsage = 0
     long cacheDatabaseUsage = 0
     
+    Account() {
+        generateMySQLPassword()
+    }
+    
+    void generateMySQLPassword() {
+        mysqlPassword = ""
+        def chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        
+        (0..30).each {
+            mysqlPassword += (char) chars.charAt((int) Math.floor(Math.random() * chars.length()))
+        }
+    }
+    
     // domain management
     void addDomain(Domain domain) {
+        domain.account = this
         domains.add(domain)
     }
     

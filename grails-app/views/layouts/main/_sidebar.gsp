@@ -12,5 +12,13 @@
     <g:each var="account" in="${me.d19.nineteen.Account.findAll(sort: "title")}">
       <li><g:link controller="account" action="view" params="${[id: account.name]}">${account.title}</g:link></li>
     </g:each>
+    
+    <li class="nav-header">Server</li>
+    <li><g:link controller="server" action="stats">View Stats</g:link></li>
+    <li><g:link controller="server" action="update">Force Update</g:link></li>
+    <li><g:link controller="server" action="reboot">Reboot</g:link></li>
+    
+    <li class="nav-header">Tools</li>
+    <li><a href="https://phpmyadmin.d19.me/">phpMyAdmin</a></li>
   </ul>
 </div><!--/.well -->

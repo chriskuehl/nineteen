@@ -12,6 +12,8 @@ class Domain {
     boolean useWWW = false
     String sslCert = null
     
+    Account account
+    
     // generate all config files and reload/update the appropriate services for
     // this specific domain
     // 

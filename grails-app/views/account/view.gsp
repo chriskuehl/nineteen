@@ -10,7 +10,32 @@
     
     <form class="well" method="POST">
       <label for="name">Name:</label>
-      <input type="text" name="name" class="span3" placeholder="last-tango" disabled="disabled" value="${account.name}" />
+      <input type="text" name="name" class="span3" disabled="disabled" value="${account.name}" />
+      
+      
+      <label for="name">MySQL Username:</label>
+      <input type="text" name="mysqlUsername" class="span3" disabled="disabled" value="www-${account.name}" />
+      
+      <label for="name">MySQL Password:</label>
+      
+      <input style="float: left; font-family: 'Courier New', Courier, monospace;" type="text" name="mysqlPassword" class="span3" disabled="disabled" value="${account.mysqlPassword}" />
+      <button style="float: left; margin-left: 10px; " type="submit" class="btn" name="mysqlRegen" id="mysqlRegen" value="Reset"><i class="icon-refresh"></i></button>
+      
+      <script>
+        $(document).ready(function() {
+          $("#mysqlRegen").click(function(e) {
+            if (! confirm("Are you ABSOLUTELY SURE you want to do this? This will probably break existing sites.")) {
+              e.preventDefault();
+              return false;
+            }
+            
+            return true;
+          });
+        });
+      </script>
+      
+      <div style="clear: both"></div>
+      
       
       <label for="name">Title:</label>
       <input type="text" name="title" class="span3" placeholder="Last Tango" value="${account.title}" />
@@ -41,8 +66,8 @@
         <tr>
           <td><g:link controller="domain" action="view" params="${[id: domain.name]}">${domain.name}</g:link></td>
           <td>${domain.root}</td>
-          <td>${domain.useWWW}</td>
-          <td>${domain.sslCert != null}</td>
+          <td>${domain.useWWW ? "Yes" : "No"}</td>
+          <td>${domain.sslCert != null ? "Yes" : "No"}</td>
         </tr>
       </g:each>
     </table>
