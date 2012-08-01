@@ -1,6 +1,8 @@
 package me.d19.nineteen
 
 class Account {
+    def databaseService
+    
     static hasMany = [domains: Domain]
     static constraints = {
         name size: 2..15, blank: false, unique: true, matches: "[a-z0-9-]*"
@@ -25,6 +27,10 @@ class Account {
         
         (0..30).each {
             mysqlPassword += (char) chars.charAt((int) Math.floor(Math.random() * chars.length()))
+        }
+        
+        if (name != null) {
+            databaseService.changePassword(name, mysqlPassword)
         }
     }
     

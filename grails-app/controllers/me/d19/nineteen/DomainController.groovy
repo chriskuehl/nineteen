@@ -19,6 +19,7 @@ class DomainController {
             
             if (domain.validate()) {
                 account.addDomain(domain)
+                domain.resetSerial()
                 
                 account.save()
                 domain.save()

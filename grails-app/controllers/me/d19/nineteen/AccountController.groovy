@@ -2,6 +2,8 @@ package me.d19.nineteen
 
 class AccountController {
     def utilService
+    def userService
+    def databaseService
     
     def add() {
         def name = ""
@@ -14,7 +16,12 @@ class AccountController {
             def account = new Account(name: name, title: title)
             
             if (account.validate()) {
+                userService.createUser(name)
+                databaseService.createUser(name)
+                
+                account.generateMySQLPassword()
                 account.save()
+                
                 redirect(action: "view", params: [id: account.name])
                 return
             } else {
