@@ -24,7 +24,7 @@ class Domain {
     Account account
     
     def updateWeb() {
-        webService.updateDomain(domain)
+        webService.updateDomain(this)
     }
     
     def createRoot() {
