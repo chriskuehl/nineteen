@@ -43,6 +43,7 @@ class DomainController {
             domain.useWWW = params.www ? true : false
             domain.sslCert = params.ssl ? "ssl" : null
             domain.javaContext = params.java.length() > 0 ? params.java : null
+            domain.useAuth = params.auth ? true : false
             
             if (domain.validate()) {
                 domain.createRoot()

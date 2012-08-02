@@ -17,6 +17,7 @@ class Domain {
     String name
     String root
     boolean useWWW = false
+    boolean useAuth = false
     String sslCert = null
     String serial = "1970010100"
     String javaContext = null

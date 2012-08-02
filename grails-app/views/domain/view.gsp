@@ -25,6 +25,7 @@
       
       
       <label for="www" class="checkbox"><input type="checkbox" id="www" name="www" ${domain.useWWW ? "checked=\"checked\"" : ""}" /> Use "www" before domain name (usually no)</label>
+      <label for="www" class="checkbox"><input type="checkbox" id="www" name="auth" ${domain.useAuth ? "checked=\"checked\"" : ""}" /> Use manual authentication</label>
       <label for="ssl" class="checkbox"><input type="checkbox" id="ssl" name="ssl" ${domain.sslCert != null ? "checked=\"checked\"" : ""}" /> Use manual SSL configuration</label>
       
       <button type="submit" class="btn" name="update" value="Update">Update</button>

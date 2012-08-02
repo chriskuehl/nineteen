@@ -60,6 +60,8 @@
         <th>Root Name</th>
         <th>Use WWW?</th>
         <th>Use SSL?</th>
+        <th>Use Auth?</th>
+        <th>Java Path</th>
       </tr>
       
       <g:each var="domain" in="${account.domains.sort {it.name}}">
@@ -68,6 +70,8 @@
           <td>${domain.root}</td>
           <td>${domain.useWWW ? "Yes" : "No"}</td>
           <td>${domain.sslCert != null ? "Yes" : "No"}</td>
+          <td>${domain.useAuth ? "Yes" : "No"}</td>
+          <td>${domain.javaContext != null ? domain.javaContext : ""}</td>
         </tr>
       </g:each>
     </table>
