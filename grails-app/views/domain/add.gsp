@@ -20,7 +20,7 @@
       
       <label for="www" class="checkbox"><input type="checkbox" id="www" name="www" ${params.www ? "checked=\"checked\"" : ""}" /> Use "www" before domain name (usually no)</label>
       
-      <p>SSL can be configured after creation.</p>
+      <p>SSL and other options can be configured after creation.</p>
       
       <button type="submit" class="btn" name="add" value="Add">Add</button>
     </form>

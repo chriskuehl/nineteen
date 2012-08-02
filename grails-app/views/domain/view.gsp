@@ -20,15 +20,19 @@
       <label for="name">Root: (usually just the domain name)</label>
       <input type="text" name="root" class="span3" placeholder="${domain.name}" value="${domain.root}" />
       
+      <label for="java">Java Context Path: (usually blank)</label>
+      <input type="text" name="java" class="span3" placeholder="/Nineteen/" value="${domain.javaContext == null ? "" : domain.javaContext}" />
+      
       
       <label for="www" class="checkbox"><input type="checkbox" id="www" name="www" ${domain.useWWW ? "checked=\"checked\"" : ""}" /> Use "www" before domain name (usually no)</label>
+      <label for="ssl" class="checkbox"><input type="checkbox" id="ssl" name="ssl" ${domain.sslCert != null ? "checked=\"checked\"" : ""}" /> Use manual SSL configuration</label>
       
       <button type="submit" class="btn" name="update" value="Update">Update</button>
     </form>
     
     <h3>SSL Configuration</h3>
     <form class="well">
-      <p>SSL isn't available yet.</p>
+      <p>SSL isn't configurable yet (must be manually configured).</p>
     </form>
   </body>
 </html>

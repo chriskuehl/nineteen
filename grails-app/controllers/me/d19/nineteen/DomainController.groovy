@@ -41,9 +41,12 @@ class DomainController {
         if (params.update) {
             domain.root = params.root
             domain.useWWW = params.www ? true : false
+            domain.sslCert = params.ssl ? "ssl" : null
+            domain.javaContext = params.java.length() > 0 ? params.java : null
             
             if (domain.validate()) {
                 domain.createRoot()
+                domain.updateWeb()
                 domain.save()
                 redirect(action: "view", params: [id: domain.name])
                 return

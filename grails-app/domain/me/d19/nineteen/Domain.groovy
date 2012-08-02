@@ -5,11 +5,13 @@ import java.text.SimpleDateFormat
 class Domain {
     def nameserverService
     def userService
+    def webService
     
     static constraints = {
         name unique: true, blank: false
         root blank: false
         sslCert nullable: true
+        javaContext nullable: true
     }
     
     String name
@@ -17,8 +19,13 @@ class Domain {
     boolean useWWW = false
     String sslCert = null
     String serial = "1970010100"
+    String javaContext = null
     
     Account account
+    
+    def updateWeb() {
+        webService.updateDomain(domain)
+    }
     
     def createRoot() {
         userService.createRoot(account.name, root)
