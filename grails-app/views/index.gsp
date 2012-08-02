@@ -22,8 +22,9 @@
       [
         title: "Server",
         links: [
-          [title: "View Stats", url: [controller: "server", action: "stats"], icon: "stats.png"],
+          [title: "View Stats", url: [controller: "server", action: "stats"], icon: "server_chart.png"],
           [title: "Force Update", url: [controller: "server", action: "update"], icon: "update.png"],
+          [title: "Flush Varnish", url: [controller: "server", action: "flushVarnish"], icon: "clock_history_frame.png"],
           [title: "Reboot", url: [controller: "server", action: "reboot"], icon: "reboot.png"]
         ]
       ]

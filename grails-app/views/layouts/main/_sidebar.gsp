@@ -16,6 +16,7 @@
     <li class="nav-header">Server</li>
     <li><g:link controller="server" action="stats">View Stats</g:link></li>
     <li><g:link controller="server" action="update">Force Update</g:link></li>
+    <li><g:link controller="server" action="flushVarnish">Flush Varnish</g:link></li>
     <li><g:link controller="server" action="reboot">Reboot</g:link></li>
     
     <li class="nav-header">Tools</li>

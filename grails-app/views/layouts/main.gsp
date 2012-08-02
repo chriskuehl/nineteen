@@ -63,6 +63,10 @@
             <div class="alert alert-error">${error}</div>
           </g:each>
           
+          <g:each var="success" in="${flash.successes}">
+            <div class="alert alert-success">${success}</div>
+          </g:each>
+          
           <g:layoutBody />
         </div><!--/span-->
       </div><!--/row-->
