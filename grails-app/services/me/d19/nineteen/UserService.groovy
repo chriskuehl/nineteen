@@ -9,7 +9,7 @@ class UserService {
         execService.exec("user/add.sh " + username)
     }
     
-    def getUserName(def username) {
+    public def getUserName(def username) {
         return "www-" + username
     }
     
