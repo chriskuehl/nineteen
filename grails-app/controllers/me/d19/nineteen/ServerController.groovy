@@ -6,7 +6,7 @@ class ServerController {
         render "<p>Updating virtual hosts.</p>\n"
         render "<ul>\n"
         
-        Domain.findAll { domain ->
+        Domain.findAll.each { domain ->
             render "<li>${domain.name}</li>\n"
             domain.updateWeb()
         }
@@ -18,7 +18,7 @@ class ServerController {
         render "<p>Incrementing serial numbers.</p>\n"
         render "<ul>\n"
         
-        Domain.findAll { domain ->
+        Domain.findAll.each { domain ->
             render "<li>${domain.name}</li>\n"
             domain.incrementSerial()
         }
