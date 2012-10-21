@@ -21,6 +21,7 @@ class DomainController {
                 account.addDomain(domain)
                 domain.resetSerial()
                 domain.createRoot()
+                domain.updateWeb()
                 
                 account.save()
                 domain.save()
