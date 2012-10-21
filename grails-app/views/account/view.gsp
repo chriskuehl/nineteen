@@ -12,9 +12,14 @@
       <label for="name">Name:</label>
       <input type="text" name="name" class="span3" disabled="disabled" value="${account.name}" />
       
+      <label for="name">FTP Username:</label>
+      <input type="text" name="ftpUsername" class="span3" disabled="disabled" value="www-${account.name}" />
+      
+      <label for="name">FTP Password:</label>
+      <p><em>Same as MySQL password.</em></p>
       
       <label for="name">MySQL Username:</label>
-      <input type="text" name="mysqlUsername" class="span3" disabled="disabled" value="www-${account.name}" />
+      <input type="text" name="mysqlUsername" class="span3" disabled="disabled" value="www-${account.name.substring(0, 16)}" />
       
       <label for="name">MySQL Password:</label>
       
