@@ -19,7 +19,7 @@
       <p><em>Same as MySQL password.</em></p>
       
       <label for="name">MySQL Username:</label>
-      <input type="text" name="mysqlUsername" class="span3" disabled="disabled" value="www-${account.name.substring(0, Math.max(account.name.length(), 12))}" />
+      <input type="text" name="mysqlUsername" class="span3" disabled="disabled" value="www-${account.name.substring(0, Math.min(account.name.length(), 12))}" />
       
       <label for="name">MySQL Password:</label>
       
