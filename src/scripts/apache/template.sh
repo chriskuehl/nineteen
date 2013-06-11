@@ -1,0 +1,86 @@
+#!/bin/bash
+# usage: template.sh hostname username root useWWW useSSL javaPath useAuth
+TMPL_HOSTNAME=$1
+TMPL_USERNAME=$2
+TMPL_ROOT=$3
+TMPL_USEWWW=$4
+TMPL_USESSL=$5
+TMPL_JAVAROOT=$6
+TMPL_USEAUTH=$7
+
+# using www?
+TMPL_HOSTNAME_PLAIN=$TMPL_HOSTNAME
+
+if [[ $TMPL_USEWWW == "www" ]]; then
+	TMPL_HOSTNAME_WWW=$TMPL_HOSTNAME
+	TMPL_HOSTNAME="www.$TMPL_HOSTNAME"
+else
+	TMPL_HOSTNAME_WWW="www.$TMPL_HOSTNAME"
+fi
+
+# ssl?
+
+if [[ $TMPL_USESSL == "ssl" ]]; then
+	TMPL_MAINPORT=443
+else
+	TMPL_MAINPORT=8080
+fi
+
+# template
+echo "<VirtualHost *:8080>"
+echo "	ServerName $TMPL_HOSTNAME_WWW"
+
+if [[ $TMPL_USESSL == "ssl" ]]; then
+	echo "	ServerAlias $TMPL_HOSTNAME"
+        echo "  Redirect permanent / https://$TMPL_HOSTNAME/"
+else
+        echo "  Redirect permanent / http://$TMPL_HOSTNAME/"
+fi
+echo "</VirtualHost>"
+echo ""
+echo "<VirtualHost *:$TMPL_MAINPORT>"
+echo "	ServerName $TMPL_HOSTNAME"
+echo "	"
+
+if [[ $TMPL_JAVAROOT == "-" ]]; then
+	echo "	DocumentRoot /home/$TMPL_USERNAME/www/$TMPL_ROOT/public/"
+	echo "	SuexecUserGroup $TMPL_USERNAME $TMPL_USERNAME"
+	echo "	"
+	echo "	Alias /fcgi-bin/ /var/www/fastcgi/$TMPL_USERNAME/"
+else
+	TMPL_JAVAROOT_CUT=${TMPL_JAVAROOT%?}
+	
+	echo "	<Location />"
+	echo "		SetOutputFilter proxy-html"
+	echo "		"
+	echo "		ProxyPass http://localhost:8000$TMPL_JAVAROOT"
+	echo "		ProxyPassReverse http://localhost:8000$TMPL_JAVAROOT"
+	echo "		ProxyPassReverseCookiePath $TMPL_JAVAROOT_CUT /"
+	echo "		ProxyHTMLInterp On"
+	echo "		ProxyHTMLURLMap $TMPL_JAVAROOT_CUT"
+	echo "		ProxyHTMLDocType \"<!doctype html>\""
+	echo "	</Location>"
+fi
+
+echo "	"
+
+if [[ $TMPL_USESSL == "ssl" ]]; then
+	echo "	SSLEngine On"
+	echo "	SSLCertificateFile /etc/apache2/ssl/$TMPL_HOSTNAME.crt"
+	echo "	"
+fi
+
+if [[ $TMPL_USEAUTH == "auth" ]]; then
+	echo "	<Location />"
+	echo "		AuthType Basic"
+	echo "		AuthName \"$TMPL_HOSTNAME_PLAIN\""
+	echo "		AuthUserFile /etc/apache2/passwd/$TMPL_HOSTNAME_PLAIN"
+	echo "		AuthGroupFile /dev/null"
+	echo "		Require valid-user"
+	echo "	</Location>"
+	echo "	"
+fi
+
+echo "	CustomLog /home/$TMPL_USERNAME/logs/www/$TMPL_ROOT/access.log combined"
+echo "	ErrorLog /home/$TMPL_USERNAME/logs/www/$TMPL_ROOT/error.log"
+echo "</VirtualHost>"

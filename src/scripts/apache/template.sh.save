@@ -1,0 +1,54 @@
+#!/bin/bash
+# usage: template.sh hostname username root useWWW useSSL javaPath
+TMPL_HOSTNAME=$1
+TMPL_USERNAME=$2
+TMPL_ROOT=$3
+TMPL_USEWWW=$4
+TMPL_USESSL=$5
+TMPL_JAVAPATH=$6
+
+# using www?
+if [[ $TMPL_USEWWW == "www" ]]; then
+	TMPL_HOSTNAME_WWW=$TMPL_HOSTNAME
+	TMPL_HOSTNAME="www.$TMPL_HOSTNAME"
+else
+	TMPL_HOSTNAME_WWW="www.$TMPL_HOSTNAME"
+fi
+
+# ssl?
+
+if [[ $TMPL_USESSL == "ssl" ]]; then
+	TMPL_MAINPORT=443
+else
+	TMPL_MAINPORT=8080
+fi
+
+# template
+echo "<VirtualHost *:8080>"
+echo "	ServerName $TMPL_HOSTNAME_WWW"
+
+if [[ $TMPL_USESSL == "ssl" ]]; then
+	echo "	ServerAlias $TMPL_HOSTNAME"
+	echo "	Redirect permanent / https://$TMPL_HOSTNAME/"
+else
+	echo "	Redirect permanent / http://$TMPL_HOSTNAME/"
+fi
+
+echo "</VirtualHost>"
+echo ""
+echo "<VirtualHost *:$TMPL_MAINPORT>"
+echo "	ServerName $TMPL_HOSTNAME"
+echo "	DocumentRoot /home/$TMPL_USERNAME/www/$TMPL_ROOT/public/"
+echo "	"
+echo "	SuexecUserGroup $TMPL_USERNAME $TMPL_USERNAME"
+echo "	"
+echo "	Alias /fcgi-bin/ /var/www/fastcgi/$TMPL_USERNAME/"
+
+if [[ $TMPL_USESSL == "ssl" ]]; then
+	echo "	SSLEngine On"
+fi
+
+echo "	"
+echo "	CustomLog /home/$TMPL_USERNAME/logs/www/$TMPL_ROOT/access.log combined"
+echo "	ErrorLog /home/$TMPL_USERNAME/logs/www/$TMPL_ROOT/error.log"
+echo "</VirtualHost>"

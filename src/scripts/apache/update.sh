@@ -1,0 +1,16 @@
+#!/bin/bash
+# usage: update.sh hostname username root useWWW useSSL javaPath useAuth
+TMPL_HOSTNAME=$1
+TMPL_USERNAME=$2
+TMPL_ROOT=$3
+TMPL_USEWWW=$4
+TMPL_USESSL=$5
+TMPL_JAVAPATH=$6
+TMPL_USEAUTH=$7
+
+UNDERSCORE="_"
+VHOST="$TMPL_USERNAME$UNDERSCORE$TMPL_HOSTNAME"
+
+/srv/nineteen/bin/apache/template.sh $1 $2 $3 $4 $5 $6 $7 > "/etc/apache2/sites-available/$VHOST"
+a2ensite $VHOST
+service apache2 reload
