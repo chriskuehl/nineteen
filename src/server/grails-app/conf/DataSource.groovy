@@ -28,9 +28,9 @@ environments {
         dataSource {
             driverClassName = 'com.mysql.jdbc.Driver'
             dbCreate = 'update'
-            url = 'jdbc:mysql://localhost:3306/nineteen'
-            username = 'nineteen'
-            password = '3JHwYzwXvJNrqLzwobTh2G61fm3xV0'
+            url = System.env.NINETEEN_JDBC_URL
+            username = System.env.NINETEEN_JDBC_USERNAME
+            password = System.env.NINETEEN_JDBC_PASSWORD
             dialect = 'org.hibernate.dialect.MySQL5InnoDBDialect'
     
             // resolve an issue with stale connections and Grails due to automatic
