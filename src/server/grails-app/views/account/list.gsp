@@ -17,7 +17,7 @@
         <th>Domains</th>
       </tr>
       
-      <g:each var="account" in="${me.d19.nineteen.Account.findAll(sort: "name")}">
+      <g:each var="account" in="${g.getAccounts()}">
         <tr>
           <td><g:link action="view" params="${[id: account.name]}">${account.name}</g:link></td>
           <td>${account.title}</td>
