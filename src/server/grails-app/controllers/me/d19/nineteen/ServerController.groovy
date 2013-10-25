@@ -5,18 +5,6 @@ class ServerController {
 
     def serverService
     
-    def flushVarnish() {
-        if (params.flush) {
-            flash.successes = ["<strong>Varnish flushed.</strong> All caches should now be empty."]
-            redirect(action: "flushVarnish")
-            serverService.flushVarnish()
-            
-            return
-        }
-        
-        render(view: "flush-varnish")
-    }
-    
     def stats() {
         render(view: "stats")
     }

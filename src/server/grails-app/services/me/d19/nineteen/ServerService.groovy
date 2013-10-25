@@ -8,8 +8,4 @@ class ServerService {
     def reboot() {
         execService.exec("server/reboot.sh")
     }
-    
-    def flushVarnish() {
-        execService.exec("server/flush-varnish.sh")
-    }
 }
