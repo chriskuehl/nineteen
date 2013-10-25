@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
 
 class Domain {
     def nameserverService
-    def userService
+    def accountService
     def webService
     
     static constraints = {
@@ -29,7 +29,7 @@ class Domain {
     }
     
     def createRoot() {
-        userService.createRoot(account.name, root)
+        accountService.createRoot(account.name, root)
     }
     
     def resetSerial() {

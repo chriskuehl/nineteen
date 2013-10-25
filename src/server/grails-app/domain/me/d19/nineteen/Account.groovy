@@ -2,6 +2,7 @@ package me.d19.nineteen
 
 class Account {
     def databaseService
+	def accountService
     
     static hasMany = [domains: Domain]
     static constraints = {
@@ -59,8 +60,4 @@ class Account {
     void calculate() {
         
     }
-
-	static Account[] findAll() {
-		return []
-	}
 }

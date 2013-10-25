@@ -1,7 +1,16 @@
 package me.d19.nineteen
 
-class UserService {
+class AccountService {
+	static transactional = false
+
     def execService
+	
+	Account[] getAccounts() {
+		def outt = execService.exec("user/list.sh")
+		println outt
+
+		return []
+	}
     
     def createUser(def username) {
         username = getUserName(username)

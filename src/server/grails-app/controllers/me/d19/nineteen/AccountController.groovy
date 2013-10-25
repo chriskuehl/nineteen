@@ -4,7 +4,7 @@ class AccountController {
 	static transactional = false
 
     def utilService
-    def userService
+    def accountService
     def databaseService
     
     def add() {
@@ -18,7 +18,7 @@ class AccountController {
             def account = new Account(name: name, title: title)
             
             if (account.validate()) {
-                userService.createUser(name)
+                accountService.createUser(name)
                 databaseService.createUser(name)
                 
                 account.generateMySQLPassword()
