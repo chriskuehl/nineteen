@@ -68,7 +68,7 @@ environments {
         grails.logging.jul.usebridge = false
         grails.serverURL = "https://nineteen.d19.me"
 
-		nineteen.scriptPath = "/srv/nineteen/bin/"
+		nineteen.scriptPath = "/srv/nineteen/src/scripts/"
     }
 }
 
