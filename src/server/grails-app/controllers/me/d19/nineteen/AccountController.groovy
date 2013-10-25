@@ -39,7 +39,7 @@ class AccountController {
     }
     
     def view() {
-        def account = Account.findByName(params.id)
+        def account = accountService.getAccount(params.id)
         
         if (params.update) {
             account.title = params.title
