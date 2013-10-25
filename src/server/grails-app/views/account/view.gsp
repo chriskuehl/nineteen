@@ -52,8 +52,8 @@
     
     <h3>Stats</h3>
     <ul>
-      <li><strong>Disk Usage:</strong> ${formatBytes([bytes: account.cacheDiskUsage])}</li>
-      <li><strong>Database Usage:</strong> ${formatBytes([bytes: account.cacheDatabaseUsage])}</li>
+      <li><strong>Disk Usage:</strong> ${formatBytes([bytes: account.diskUsage])}</li>
+      <li><strong>Database Usage:</strong> ${formatBytes([bytes: account.databaseUsage])}</li>
     </ul>
     
     <hr />

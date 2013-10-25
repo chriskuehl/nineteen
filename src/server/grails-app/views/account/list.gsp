@@ -21,8 +21,8 @@
         <tr>
           <td><g:link action="view" params="${[id: account.name]}">${account.name}</g:link></td>
           <td>${account.title}</td>
-          <td>${formatBytes([bytes: account.cacheDiskUsage])}</td>
-          <td>${formatBytes([bytes: account.cacheDatabaseUsage])}</td>
+          <td>${formatBytes([bytes: account.diskUsage])}</td>
+          <td>${formatBytes([bytes: account.databaseUsage])}</td>
           <td>${account.domains.size()}</td>
         </tr>
       </g:each>

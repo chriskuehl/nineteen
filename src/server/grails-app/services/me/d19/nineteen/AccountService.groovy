@@ -17,7 +17,9 @@ class AccountService {
 			name: userName,
 
 			title: info[0],
-			mysqlPassword: info[1]
+			mysqlPassword: info[1],
+			diskUsage: info[2],
+			databaseUsage: info[3]
 		)
 
 		return acc

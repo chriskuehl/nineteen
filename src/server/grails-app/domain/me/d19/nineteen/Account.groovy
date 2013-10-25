@@ -11,8 +11,8 @@ class Account {
     
     String mysqlPassword
     
-    long cacheDiskUsage = 0
-    long cacheDatabaseUsage = 0
+    long diskUsage = 0
+    long databaseUsage = 0
     
     Account() {
         generateMySQLPassword()
