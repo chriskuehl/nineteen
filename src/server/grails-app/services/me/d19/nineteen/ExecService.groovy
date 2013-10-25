@@ -12,6 +12,8 @@ class ExecService {
         
         System.err.println("exec: " + cmd)
         
+		def lines = []
+
         try {
             Process p = Runtime.getRuntime().exec(cmd)
             p.waitFor()
@@ -19,15 +21,13 @@ class ExecService {
             BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()))
             
             while (r.ready()) {
-                output += r.readLine() + "\n"
+            	lines.add(r.readLine())
             }
         } catch (Throwable t) {
             t.printStackTrace()
             return null
         }
         
-        output = output.substring(0, output.length() - 1) // remove newline at the end
-        
-        return output
+        return lines
     }
 }
