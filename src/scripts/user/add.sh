@@ -18,13 +18,6 @@ chown -R $1:$1 $HOME
 #usermod -a -G $1 chris
 #usermod -a -G $1 arian
 
-# setup ACL on the home directory
-#setfacl -Rm \
-#d:group:design19:rwx,d:user:www-data:r-x,d:user:$1:rwx,d:group:$1:rwx,\
-#group:design19:rwx,user:www-data:r-x,user:$1:rwx,group:$1:rwx $HOME
-
-/srv/nineteen/bin/user/set-acl.sh $1 $HOME
-
 # setup fastcgi
 mkdir /var/www/fastcgi/$1/
 cp /var/www/fastcgi/php5-fcgi /var/www/fastcgi/$1/
