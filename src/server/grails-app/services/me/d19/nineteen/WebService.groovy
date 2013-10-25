@@ -1,6 +1,8 @@
 package me.d19.nineteen
 
 class WebService {
+	static transactional = false
+
     def execService
     def userService
     

@@ -1,6 +1,7 @@
 package me.d19.nineteen
 
 class DatabaseService {
+	static transactional = false
     def execService
     
     def createUser(def username) {

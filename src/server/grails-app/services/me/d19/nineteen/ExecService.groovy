@@ -1,6 +1,7 @@
 package me.d19.nineteen
 
 class ExecService {
+	static transactional = false
     def scriptPath = "/srv/nineteen/bin/"
     
     def exec(def cmd) {

@@ -3,6 +3,7 @@ package me.d19.nineteen
 import org.apache.commons.io.FileUtils
 
 class UtilService {
+	static transactional = false
     def messageSource
     
     def domainErrorsToList(def object) {
