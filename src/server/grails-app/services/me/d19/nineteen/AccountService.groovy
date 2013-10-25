@@ -6,10 +6,21 @@ class AccountService {
     def execService
 	
 	Account[] getAccounts() {
-		def outt = execService.exec("user/list.sh")
-		println outt
+		def userNames = execService.exec("user/list.sh")
+		return userNames.collect { getAccount(it) }
+	}
 
-		return []
+	Account getAccount(def userName) {
+		def info = execService.exec("user/info.sh ${userName}")
+
+		def acc = new Account(
+			name: userName,
+
+			title: info[0],
+			mysqlPassword: info[1]
+		)
+
+		return acc
 	}
     
     def createUser(def username) {
