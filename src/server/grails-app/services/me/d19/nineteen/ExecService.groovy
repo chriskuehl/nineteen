@@ -2,9 +2,11 @@ package me.d19.nineteen
 
 class ExecService {
 	static transactional = false
-    def scriptPath = "/srv/nineteen/bin/"
+
+	def grailsApplication
     
     def exec(def cmd) {
+		def scriptPath = grailsApplication.config.nineteen.scriptPath
         def output = ""
         cmd = "sudo " + scriptPath + cmd + "\n"
         

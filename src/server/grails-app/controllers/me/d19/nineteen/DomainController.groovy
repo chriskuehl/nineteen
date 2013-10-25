@@ -1,6 +1,8 @@
 package me.d19.nineteen
 
 class DomainController {
+	static transactional = false
+
     def utilService
     
     def add() {

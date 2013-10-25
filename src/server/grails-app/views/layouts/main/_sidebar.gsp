@@ -9,7 +9,7 @@
   
     <li class="nav-header">Accounts</li>
     
-    <g:each var="account" in="${me.d19.nineteen.Account.findAll(sort: "title")}">
+    <g:each var="account" in="${me.d19.nineteen.Account.findAll()}">
       <li><g:link controller="account" action="view" params="${[id: account.name]}">${account.title}</g:link></li>
     </g:each>
     

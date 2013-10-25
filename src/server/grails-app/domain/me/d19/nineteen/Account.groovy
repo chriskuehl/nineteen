@@ -59,4 +59,8 @@ class Account {
     void calculate() {
         
     }
+
+	static Account[] findAll() {
+		return []
+	}
 }

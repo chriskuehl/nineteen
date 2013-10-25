@@ -1,6 +1,8 @@
 package me.d19.nineteen
 
 class ServerController {
+	static transactional = false
+
     def serverService
     
     def flushVarnish() {

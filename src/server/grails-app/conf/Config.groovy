@@ -62,11 +62,13 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-
+		nineteen.scriptPath = "/srv/ssd/home/chris/dev/projects/nineteen/src/scripts/"
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "https://nineteen.d19.me"
+
+		nineteen.scriptPath = "/srv/nineteen/bin/"
     }
 }
 

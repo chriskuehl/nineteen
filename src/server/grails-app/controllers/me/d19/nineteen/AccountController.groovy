@@ -1,6 +1,8 @@
 package me.d19.nineteen
 
 class AccountController {
+	static transactional = false
+
     def utilService
     def userService
     def databaseService
