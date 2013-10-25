@@ -62,7 +62,7 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-		nineteen.scriptPath = "/srv/ssd/home/chris/dev/projects/nineteen/src/scripts/"
+		nineteen.scriptPath = "/srv/nineteen/src/scripts/"
     }
     production {
         grails.logging.jul.usebridge = false
