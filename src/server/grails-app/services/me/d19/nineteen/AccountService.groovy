@@ -27,7 +27,7 @@ class AccountService {
 	}
 
 	def changeTitle(def userName, def title) {
-		execService.exec("user/change-title.sh ${userName} ${title}")
+		execService.exec2(["user/change-title.sh", userName, title])
 	}
 
 	def changeSFTPPassword(def userName, def password) {
@@ -39,7 +39,7 @@ class AccountService {
 	}
     
     def createUser(def userName, def title) {
-        execService.exec("user/add.sh ${userName} ${title}")
+		execService.exec2(["user/add.sh", userName, title])
     }
     
     def createRoot(def userName, def root) {
