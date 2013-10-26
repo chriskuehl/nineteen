@@ -1,7 +1,7 @@
 #!/bin/sh
 USER="$1"
-TITLE="$2"
+PASSWORD="$2"
 
 HOME="/home/$USER"
 
-echo "$2" > "$HOME/.nineteen/sftp-password"
+echo "$PASSWORD" > "$HOME/.nineteen/sftp-password"
