@@ -16,9 +16,6 @@ class AccountController {
             title = params.title
             
             def account = new Account(name: name, title: title)
-
-			println "account is ${account}"
-
             
             if (account.validate()) {
                 accountService.createUser(name, title)
@@ -57,10 +54,11 @@ class AccountController {
                 redirect(action: "view", params: [id: account.name])
                 return
             }
-        } else if (params.mysqlRegen) {
+        }  else if (params.mysqlRegen) {
             account.generateMySQLPassword()
-            account.save()
-            
+            redirect(action: "view", params: [id: account.name])
+        } else if (params.sftpRegen) {
+            account.generateSFTPPassword()
             redirect(action: "view", params: [id: account.name])
         }
         

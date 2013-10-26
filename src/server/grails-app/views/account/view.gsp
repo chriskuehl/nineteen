@@ -13,11 +13,11 @@
       <input type="text" name="name" class="span3" disabled="disabled" value="${account.name}" />
       
       <label for="name">SFTP Username:</label>
-      <input type="text" name="ftpUsername" class="span3" disabled="disabled" value="${account.name}" />
+      <input type="text" name="sftpUsername" class="span3" disabled="disabled" value="${account.name}" />
       
 	  <label for="name">SFTP Password:</label>
 
-      <input style="float: left; font-family: 'Courier New', Courier, monospace;" type="text" name="mysqlPassword" class="span3" disabled="disabled" value="${account.sftpPassword}" />
+      <input style="float: left; font-family: 'Courier New', Courier, monospace;" type="text" name="sftpPassword" class="span3" disabled="disabled" value="${account.sftpPassword}" />
 	  <button style="float: left; margin-left: 10px; " type="submit" class="btn" name="sftpRegen" id="sftpRegen" value="Reset"><i class="icon-refresh"></i></button>
 	  
       <div style="clear: both"></div>
@@ -32,7 +32,7 @@
       
       <script>
         $(document).ready(function() {
-          $("#mysqlRegen").click(function(e) {
+          $("#mysqlRegen, #sftpRegen").click(function(e) {
             if (! confirm("Are you ABSOLUTELY SURE you want to do this? This will probably break existing sites.")) {
               e.preventDefault();
               return false;
