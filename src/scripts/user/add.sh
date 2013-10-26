@@ -1,27 +1,25 @@
 #!/bin/bash
+USER="$1"
+TITLE="$2"
+
+HOME="/home/$USER"
 
 # add the user
-adduser --disabled-password --gecos "$1,,," $1
+adduser --shell /usr/bin/zsh --disabled-password --gecos "" "$USER"
+
+# propogate the user to other servers
+/srv/scripts/update-users.sh
+
+chown -R "$USER:$USER" "$HOME"
+chmod 700 "$HOME"
 
 # setup home directory folders
-HOME="/home/$1"
 mkdir -p "$HOME/logs/www/"
 mkdir -p "$HOME/www/"
 mkdir -p "$HOME/tmp/"
 
-# set permissions on the home directory folders
-chown -R $1:$1 $HOME
-#chmod -R 770 $HOME
-#chmod -R g+s $HOME
-
-#usermod -a -G $1 www-data
-#usermod -a -G $1 chris
-#usermod -a -G $1 arian
-
-# setup fastcgi
-mkdir /var/www/fastcgi/$1/
-cp /var/www/fastcgi/php5-fcgi /var/www/fastcgi/$1/
-chown -R $1:$1 /var/www/fastcgi/$1/
-
-# all done
-echo "OK"
+# set up nineteen data
+mkdir -p "$HOME/.nineteen"
+chown -R root:root "$HOME/.nineteen"
+chmod 700 "$HOME/.nineteen"
+echo "$TITLE" > "$HOME/.nineteen/title"
