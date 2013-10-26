@@ -16,13 +16,16 @@ class AccountController {
             title = params.title
             
             def account = new Account(name: name, title: title)
+
+			println "account is ${account}"
+
             
             if (account.validate()) {
-                accountService.createUser(name)
-                databaseService.createUser(name)
+                accountService.createUser(name, title)
                 
-                account.generateMySQLPassword()
-                account.save()
+				/* databaseService.createUser(name)
+                
+                account.generateMySQLPassword() */
                 
                 redirect(action: "view", params: [id: account.name])
                 return

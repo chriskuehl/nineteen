@@ -18,26 +18,29 @@ class AccountService {
 
 			title: info[0],
 			mysqlPassword: info[1],
-			diskUsage: info[2],
-			databaseUsage: info[3]
+			sftpPassword: info[2],
+			diskUsage: info[3],
+			databaseUsage: info[4]
 		)
 
 		return acc
 	}
+
+	def changeSFTPPassword(def userName, def password) {
+		execService.exec("user/change-sftp-password.sh ${userName} ${passworD}")
+	}
+
+	def changeMySQLPassword(def userName, def password) {
+		execService.exec("user/change-mysql-password.sh ${userName} ${passworD}")
+	}
     
-    def createUser(def username) {
-        username = getUserName(username)
-        
-        execService.exec("user/add.sh " + username)
+    def createUser(def userName, def title) {
+        execService.exec("user/add.sh ${userName} ${title}")
     }
     
-    public def getUserName(def username) {
-        return "www-" + username
-    }
-    
-    def createRoot(def username, def root) {
-        username = getUserName(username)
+    def createRoot(def userName, def root) {
+        userName = getuserName(userName)
         
-        execService.exec("user/create-root.sh " + username + " " + root)
+        execService.exec("user/create-root.sh ${userName} ${root}")
     }
 }

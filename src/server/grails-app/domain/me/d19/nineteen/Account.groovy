@@ -4,6 +4,11 @@ class Account {
     def databaseService
 	def accountService
 
+	static constraints = {
+		mysqlPassword(nullable: true)
+		sftpPassword(nullable: true)
+	}
+
     String name // cannot be changed after creation
     String title
 	
@@ -14,23 +19,29 @@ class Account {
     
     long diskUsage = 0
     long databaseUsage = 0
-    
-    Account() {
-        generateMySQLPassword()
-    }
+
+	void generateSFTPPassword() {
+		sftpPassword = generatePassword(30)
+		accountService.changeSFTPPassword(name, sftpPassword)
+	}
     
     void generateMySQLPassword() {
-        mysqlPassword = ""
-        def chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        
-        (0..30).each {
-            mysqlPassword += (char) chars.charAt((int) Math.floor(Math.random() * chars.length()))
-        }
-        
-        if (name != null) {
-            databaseService.changePassword(name, mysqlPassword)
-        }
+		mysqlPassword = generatePassword(30)
+
+		println "accountService is ${accountService}"
+
+		//accountService.changeMySQLPassword(name, mysqlPassword)
+		//databaseService.changePassword(name, mysqlPassword)
     }
+
+	void generatePassword(def nchars) {
+        def chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+		def password = ""
+        
+        (0..nchars).each {
+            password += (char) chars.charAt((int) Math.floor(Math.random() * chars.length()))
+        }
+	}
     
     // domain management
     void addDomain(Domain domain) {
