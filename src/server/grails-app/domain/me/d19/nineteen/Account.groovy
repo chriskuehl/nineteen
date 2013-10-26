@@ -10,6 +10,7 @@ class Account {
 	List domains = []
     
     String mysqlPassword
+	String sftpPassword
     
     long diskUsage = 0
     long databaseUsage = 0
