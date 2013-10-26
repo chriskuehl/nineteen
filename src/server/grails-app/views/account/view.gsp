@@ -8,27 +8,31 @@
   <body>
     <h2>Modify Account: ${account.title}</h2>
     
-    <form class="well" method="POST">
+    <div class="well">
       <label for="name">Name:</label>
       <input type="text" name="name" class="span3" disabled="disabled" value="${account.name}" />
-      
-      <label for="name">SFTP Username:</label>
-      <input type="text" name="sftpUsername" class="span3" disabled="disabled" value="${account.name}" />
-      
-	  <label for="name">SFTP Password:</label>
 
-      <input style="float: left; font-family: 'Courier New', Courier, monospace;" type="text" name="sftpPassword" class="span3" disabled="disabled" value="${account.sftpPassword}" />
-	  <button style="float: left; margin-left: 10px; " type="submit" class="btn" name="sftpRegen" id="sftpRegen" value="Reset"><i class="icon-refresh"></i></button>
+	  <form method="POST">
+		  <label for="name">SFTP Username:</label>
+		  <input type="text" name="sftpUsername" class="span3" disabled="disabled" value="${account.name}" />
+		  
+		  <label for="name">SFTP Password:</label>
+
+		  <input style="float: left; font-family: 'Courier New', Courier, monospace;" type="text" name="sftpPassword" class="span3" disabled="disabled" value="${account.sftpPassword}" />
+		  <button style="float: left; margin-left: 10px; " type="submit" class="btn" name="sftpRegen" id="sftpRegen" value="Reset"><i class="icon-refresh"></i></button>
+	  </form>
 	  
       <div style="clear: both"></div>
-      
-      <label for="name">MySQL Username:</label>
-      <input type="text" name="mysqlUsername" class="span3" disabled="disabled" value="${account.name.substring(0, Math.min(account.name.length(), 16))}" />
-      
-      <label for="name">MySQL Password:</label>
-      
-      <input style="float: left; font-family: 'Courier New', Courier, monospace;" type="text" name="mysqlPassword" class="span3" disabled="disabled" value="${account.mysqlPassword}" />
-      <button style="float: left; margin-left: 10px; " type="submit" class="btn" name="mysqlRegen" id="mysqlRegen" value="Reset"><i class="icon-refresh"></i></button>
+
+	  <form method="POST">
+		  <label for="name">MySQL Username:</label>
+		  <input type="text" name="mysqlUsername" class="span3" disabled="disabled" value="${account.name.substring(0, Math.min(account.name.length(), 16))}" />
+		  
+		  <label for="name">MySQL Password:</label>
+		  
+		  <input style="float: left; font-family: 'Courier New', Courier, monospace;" type="text" name="mysqlPassword" class="span3" disabled="disabled" value="${account.mysqlPassword}" />
+		  <button style="float: left; margin-left: 10px; " type="submit" class="btn" name="mysqlRegen" id="mysqlRegen" value="Reset"><i class="icon-refresh"></i></button>
+	  </form>
       
       <script>
         $(document).ready(function() {
@@ -46,11 +50,13 @@
       <div style="clear: both"></div>
       
       
-      <label for="name">Title:</label>
-      <input type="text" name="title" class="span3" placeholder="Last Tango" value="${account.title}" />
-      
-      <button type="submit" class="btn" name="update" value="Update">Update</button>
-    </form>
+	  <form method="POST">
+		  <label for="name">Title:</label>
+		  <input type="text" name="title" class="span3" placeholder="Last Tango" value="${account.title}" />
+
+		  <button type="submit" class="btn" name="update" value="Update">Update</button>
+	  </form>
+    </div>
     
     <hr />
     
