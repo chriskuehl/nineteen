@@ -26,6 +26,10 @@ class AccountService {
 		return acc
 	}
 
+	def changeTitle(def userName, def title) {
+		execService.exec("user/change-title.sh ${userName} ${title}")
+	}
+
 	def changeSFTPPassword(def userName, def password) {
 		execService.exec("user/change-sftp-password.sh ${userName} ${password}")
 	}

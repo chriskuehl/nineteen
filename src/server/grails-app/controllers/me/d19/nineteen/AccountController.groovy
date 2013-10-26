@@ -46,11 +46,10 @@ class AccountController {
             account.title = params.title
             
             if (account.validate()) {
-				println "it worked"
+				accountService.changeTitle(account.name, account.title)
                 redirect(action: "view", params: [id: account.name])
                 return
             } else {
-				println "didn't work"
                 flash.errors = utilService.domainErrorsToList(account)
                 redirect(action: "view", params: [id: account.name])
                 return
