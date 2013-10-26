@@ -18,7 +18,9 @@
 	  <label for="name">SFTP Password:</label>
 
       <input style="float: left; font-family: 'Courier New', Courier, monospace;" type="text" name="mysqlPassword" class="span3" disabled="disabled" value="${account.sftpPassword}" />
-      <button style="float: left; margin-left: 10px; " type="submit" class="btn" name="sftpRegen" id="sftpRegen" value="Reset"><i class="icon-refresh"></i></button>
+	  <button style="float: left; margin-left: 10px; " type="submit" class="btn" name="sftpRegen" id="sftpRegen" value="Reset"><i class="icon-refresh"></i></button>
+	  
+      <div style="clear: both"></div>
       
       <label for="name">MySQL Username:</label>
       <input type="text" name="mysqlUsername" class="span3" disabled="disabled" value="${account.name.substring(0, Math.min(account.name.length(), 16))}" />
