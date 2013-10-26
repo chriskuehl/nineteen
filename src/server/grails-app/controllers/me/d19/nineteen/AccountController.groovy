@@ -23,9 +23,10 @@ class AccountController {
             if (account.validate()) {
                 accountService.createUser(name, title)
                 
-				/* databaseService.createUser(name)
+				// databaseService.createUser(name)
                 
-                account.generateMySQLPassword() */
+                account.generateMySQLPassword()
+                account.generateSFTPPassword()
                 
                 redirect(action: "view", params: [id: account.name])
                 return

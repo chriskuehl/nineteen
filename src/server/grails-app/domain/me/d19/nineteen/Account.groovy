@@ -28,19 +28,19 @@ class Account {
     void generateMySQLPassword() {
 		mysqlPassword = generatePassword(30)
 
-		println "accountService is ${accountService}"
-
-		//accountService.changeMySQLPassword(name, mysqlPassword)
+		accountService.changeMySQLPassword(name, mysqlPassword)
 		//databaseService.changePassword(name, mysqlPassword)
     }
 
-	void generatePassword(def nchars) {
+	private def generatePassword(def nchars) {
         def chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 		def password = ""
-        
+
         (0..nchars).each {
             password += (char) chars.charAt((int) Math.floor(Math.random() * chars.length()))
         }
+
+		password
 	}
     
     // domain management

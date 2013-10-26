@@ -27,11 +27,11 @@ class AccountService {
 	}
 
 	def changeSFTPPassword(def userName, def password) {
-		execService.exec("user/change-sftp-password.sh ${userName} ${passworD}")
+		execService.exec("user/change-sftp-password.sh ${userName} ${password}")
 	}
 
 	def changeMySQLPassword(def userName, def password) {
-		execService.exec("user/change-mysql-password.sh ${userName} ${passworD}")
+		execService.exec("user/change-mysql-password.sh ${userName} ${password}")
 	}
     
     def createUser(def userName, def title) {
