@@ -7,9 +7,6 @@ HOME="/home/$USER"
 # add the user
 adduser --shell /usr/bin/zsh --disabled-password --gecos "" "$USER"
 
-# propogate the user to other servers
-/srv/scripts/update-users.sh
-
 chown -R "$USER:$USER" "$HOME"
 chmod 700 "$HOME"
 
@@ -23,3 +20,6 @@ mkdir -p "$HOME/.nineteen"
 chown -R root:root "$HOME/.nineteen"
 chmod 700 "$HOME/.nineteen"
 echo "$TITLE" > "$HOME/.nineteen/title"
+
+# propogate the user to other servers
+/srv/scripts/update-users.sh
