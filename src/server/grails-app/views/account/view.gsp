@@ -94,6 +94,14 @@
     <g:link controller="domain" action="add" params="${[id: account.name]}" class="btn">
       <g:img dir="img" file="layout_add.png" />
       Add Domain
-    </g:link>
+  </g:link>
+
+  <hr />
+
+  <h3>Account Management</h3>
+    <g:link controller="account" action="delete" params="${[id: account.name]}" class="btn">
+      <g:img dir="img" file="group_delete.png" />
+      Delete Account
+  </g:link>
   </body>
 </html>
