@@ -69,7 +69,7 @@ class AccountController {
 		def account = accountService.getAccount(params.id)
 		
 		if (account) {
-			render(view: "delete")
+			render(view: "delete", model: [account: account])
 		} else {
 			return redirect(controller: "account", action: "list")
 		}
