@@ -3,6 +3,8 @@ package me.d19.nineteen
 import org.mindrot.jbcrypt.BCrypt
 
 class HashingService {
+	static transactional = false
+
     def hash(def str) {
         BCrypt.hashpw(str, BCrypt.gensalt(9))
     }
