@@ -15,7 +15,7 @@ class ExecService {
         System.err.println("exec: " + cmd)
 
 		def proc = cmd.execute()
-		//proc.in.eachLine { line -> lines.add(line) }
+		proc.in.eachLine { line -> lines.add(line) }
 
         return lines
 	}
