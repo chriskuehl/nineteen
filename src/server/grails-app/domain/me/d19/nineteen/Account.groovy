@@ -3,6 +3,7 @@ package me.d19.nineteen
 class Account {
     def databaseService
 	def accountService
+	def utilService
 
 	static constraints = {
 		mysqlPassword(nullable: true)
@@ -23,28 +24,17 @@ class Account {
 	boolean protectedUser
 
 	void generateSFTPPassword() {
-		sftpPassword = generatePassword(30)
+		sftpPassword = utilService.generatePassword(30)
 		accountService.changeSFTPPassword(name, sftpPassword)
 	}
     
     void generateMySQLPassword() {
-		mysqlPassword = generatePassword(30)
+		mysqlPassword = utilService.generatePassword(30)
 
 		accountService.changeMySQLPassword(name, mysqlPassword)
 		//databaseService.changePassword(name, mysqlPassword)
     }
 
-	private def generatePassword(def nchars) {
-        def chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-		def password = ""
-
-        (0..nchars).each {
-            password += (char) chars.charAt((int) Math.floor(Math.random() * chars.length()))
-        }
-
-		password
-	}
-    
     // domain management
     void addDomain(Domain domain) {
         domain.account = this
