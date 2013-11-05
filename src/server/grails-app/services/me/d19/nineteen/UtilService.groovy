@@ -36,4 +36,15 @@ class UtilService {
         
         displaySize
     }
+
+	def generatePassword(def nchars) {
+        def chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+		def password = ""
+
+        (0..nchars).each {
+            password += (char) chars.charAt((int) Math.floor(Math.random() * chars.length()))
+        }
+
+		password
+	}
 }
