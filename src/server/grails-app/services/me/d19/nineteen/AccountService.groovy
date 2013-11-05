@@ -47,4 +47,8 @@ class AccountService {
         
         execService.exec("user/create-root.sh ${userName} ${root}")
     }
+
+	def deleteAccount(def userName) {
+		execService.exec2(["user/del.sh", userName])
+	}
 }
