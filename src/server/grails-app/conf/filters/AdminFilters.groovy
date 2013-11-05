@@ -15,8 +15,6 @@ class AdminFilters {
 				def success = false
 				def auth = request.getHeader("Authorization")
 
-				println "got auth: ${auth}"
-
 				if (auth) {
 					def b64 = auth - 'Basic '  
 					def raw =  new String(new sun.misc.BASE64Decoder().decodeBuffer(b64));  
@@ -25,15 +23,11 @@ class AdminFilters {
 					if (parts.size() == 2 && parts[0].length() > 0 && parts[1].length() > 0) {
 						def hash = System.env["NINETEEN_ADMIN_" + parts[0].toUpperCase()]
 
-						println "comparing to hash: ${hash}"
-
 						try {
 							if (hash && hash.length() > 0 && hashingService.matches(hash, parts[1])) {
 								success = true
 							}
 						} catch (IllegalArgumentException ex) {}
-
-						println "nope"
 					}
 				}	
 
