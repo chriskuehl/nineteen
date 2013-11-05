@@ -20,6 +20,8 @@ class Account {
     long diskUsage = 0
     long databaseUsage = 0
 
+	boolean protectedUser
+
 	void generateSFTPPassword() {
 		sftpPassword = generatePassword(30)
 		accountService.changeSFTPPassword(name, sftpPassword)

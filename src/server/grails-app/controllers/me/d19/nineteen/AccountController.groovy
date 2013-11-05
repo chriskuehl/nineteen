@@ -69,6 +69,10 @@ class AccountController {
 		def account = accountService.getAccount(params.id)
 		
 		if (account) {
+			if (account.protectedUser) {
+				return render(view: "protected", model: [account: account])
+			}
+
 			if (params.delete) {
 				accountService.deleteAccount(params.id)
                 redirect(action: "list")
