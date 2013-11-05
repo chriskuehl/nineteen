@@ -20,7 +20,8 @@ class AccountService {
 			mysqlPassword: info[1],
 			sftpPassword: info[2],
 			diskUsage: info[3],
-			databaseUsage: info[4]
+			databaseUsage: info[4],
+			protectedUser: info[5] == "1"
 		)
 
 		return acc
