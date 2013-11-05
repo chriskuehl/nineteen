@@ -7,13 +7,13 @@ class DatabaseService {
     def createUser(def username) {
         username = getUserName(username)
         
-        execService.exec2(["mysql/add.sh", username])
+        execService.exec(["mysql/add.sh", username])
     }
     
     def changePassword(def username, def password) {
         username = getUserName(username)
         
-        execService.exec2(["mysql/change-password.sh", username, password])
+        execService.exec(["mysql/change-password.sh", username, password])
     }
     
     def getUserName(def username) {

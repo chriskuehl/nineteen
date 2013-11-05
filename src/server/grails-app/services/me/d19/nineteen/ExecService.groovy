@@ -5,7 +5,7 @@ class ExecService {
 
 	def grailsApplication
 
-	def exec2(def cmd) {
+	def exec(def cmd) {
 		def lines = []
 		def scriptPath = grailsApplication.config.nineteen.scriptPath
 
