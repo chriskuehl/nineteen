@@ -15,7 +15,8 @@
       <label for="name">Title:</label>
       <input type="text" name="title" class="span3" placeholder="Last Tango" value="${params.title}" />
       
-      <button type="submit" class="btn" name="add" value="Create">Create</button>
+	  <button type="submit" class="btn" name="add" value="Create">Create</button>
+	  <p>Please note: Creating a new user can take 10-15 seconds, so please don't refresh or click the button again.</p>
     </form>
   </body>
 </html>
