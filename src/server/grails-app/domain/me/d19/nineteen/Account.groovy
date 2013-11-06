@@ -54,10 +54,4 @@ class Account {
             domain.update()
         }
     }
-    
-    // re-calculate the cached values (things like disk space, database size
-    // usage, etc.)
-    void calculate() {
-        
-    }
 }
