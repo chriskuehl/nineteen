@@ -14,5 +14,6 @@
 				Delete Account
 			</button>
 		</g:form>
+	  <p>Please note: Deleting a user can take 10-15 seconds, so please don't refresh or click the button again.</p>
 	</body>
 </html>
