@@ -11,7 +11,10 @@ class AccountService {
 	}
 
 	Account getAccount(def userName) {
+		println userName
 		def info = execService.exec(["user/info.sh", userName])
+		println "info="
+		println info
 
 		def acc = new Account(
 			name: userName,
@@ -19,10 +22,12 @@ class AccountService {
 			title: info[0],
 			mysqlPassword: info[1],
 			sftpPassword: info[2],
-			diskUsage: info[3],
-			databaseUsage: info[4],
+			diskUsage: info[3].toLong(),
+			databaseUsage: info[4].toLong(),
 			protectedUser: info[5] == "1"
 		)
+		println "acc="
+		println acc
 
 		return acc
 	}
