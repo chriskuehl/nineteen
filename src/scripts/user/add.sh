@@ -11,7 +11,7 @@ chown -R "$USER:$USER" "$HOME"
 chmod 700 "$HOME"
 
 # setup home directory folders
-mkdir -p "$HOME/logs/www/"
+mkdir -p "$HOME/log/www/"
 mkdir -p "$HOME/www/"
 mkdir -p "$HOME/tmp/"
 
