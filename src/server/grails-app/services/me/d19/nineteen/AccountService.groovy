@@ -11,10 +11,7 @@ class AccountService {
 	}
 
 	Account getAccount(def userName) {
-		println userName
 		def info = execService.exec(["user/info.sh", userName])
-		println "info="
-		println info
 
 		def acc = new Account(
 			name: userName,
@@ -26,8 +23,6 @@ class AccountService {
 			databaseUsage: info[4].toLong(),
 			protectedUser: info[5] == "1"
 		)
-		println "acc="
-		println acc
 
 		return acc
 	}
