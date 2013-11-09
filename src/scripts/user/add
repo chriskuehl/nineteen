@@ -22,4 +22,4 @@ chmod 700 "$HOME/.nineteen"
 echo "$TITLE" > "$HOME/.nineteen/title"
 
 # propogate the user to other servers
-/srv/scripts/update-users.sh
+/srv/scripts/update-users

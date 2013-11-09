@@ -1,6 +1,6 @@
 #!/bin/bash
-/srv/nineteen/bin/bind/template.sh $1 $2 > /etc/bind/zones/$1
-/srv/nineteen/bin/bind/update-local.sh
+/srv/nineteen/bin/bind/template $1 $2 > /etc/bind/zones/$1
+/srv/nineteen/bin/bind/update-local
 
 curl "https://api.linode.com/\
 ?api_key=API_KEY_REDACTED\

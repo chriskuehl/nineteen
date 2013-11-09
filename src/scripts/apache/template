@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage: template.sh hostname username root useWWW useSSL javaPath useAuth
+# usage: template hostname username root useWWW useSSL javaPath useAuth
 TMPL_HOSTNAME=$1
 TMPL_USERNAME=$2
 TMPL_ROOT=$3

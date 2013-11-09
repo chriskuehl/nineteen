@@ -1,4 +1,4 @@
 #!/bin/bash
-/srv/nineteen/bin/server/reboot-now.sh &
+/srv/nineteen/bin/server/reboot-now &
 
 echo "OK"

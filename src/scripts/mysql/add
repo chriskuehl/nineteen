@@ -1,5 +1,5 @@
 #!/bin/bash
-source /srv/nineteen/bin/mysql/key.sh
+source /srv/nineteen/bin/mysql/key
 
 # create user
 echo "GRANT USAGE ON *.* TO '$1'@'localhost' IDENTIFIED BY 'unset' \
