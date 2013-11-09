@@ -5,6 +5,6 @@ class NameserverService {
     def execService
     
     def updateDomain(Domain domain) {
-        execService.exec(["bind/update.sh", domain.name, domain.serial])
+        execService.exec(["bind/update", domain.name, domain.serial])
     }
 }

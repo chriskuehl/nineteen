@@ -6,9 +6,9 @@ class WebService {
     def execService
     def accountService
     
-    def updateDomain(def domain) { // usage: update.sh hostname username root useWWW useSSL javaPath
+    def updateDomain(def domain) { // usage: update hostname username root useWWW useSSL javaPath
         execService.exec([
-			"apache/update.sh",
+			"apache/update",
 			domain.name,
 			accountService.getUserName(domain.account.name),
 			domain.root,

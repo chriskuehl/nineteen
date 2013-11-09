@@ -6,6 +6,6 @@ class ServerService {
     def execService
     
     def reboot() {
-        execService.exec(["server/reboot.sh"])
+        execService.exec(["server/reboot"])
     }
 }

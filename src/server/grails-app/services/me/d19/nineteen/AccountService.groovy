@@ -6,12 +6,12 @@ class AccountService {
     def execService
 	
 	Account[] getAccounts() {
-		def userNames = execService.exec(["user/list.sh"])
+		def userNames = execService.exec(["user/list"])
 		return userNames.collect { getAccount(it) }
 	}
 
 	Account getAccount(def userName) {
-		def info = execService.exec(["user/info.sh", userName])
+		def info = execService.exec(["user/info", userName])
 
 		def acc = new Account(
 			name: userName,
@@ -28,28 +28,28 @@ class AccountService {
 	}
 
 	def changeTitle(def userName, def title) {
-		execService.exec(["user/change-title.sh", userName, title])
+		execService.exec(["user/change-title", userName, title])
 	}
 
 	def changeSFTPPassword(def userName, def password) {
-		execService.exec(["user/change-sftp-password.sh", userName, password])
+		execService.exec(["user/change-sftp-password", userName, password])
 	}
 
 	def changeMySQLPassword(def userName, def password) {
-		execService.exec(["user/change-mysql-password.sh", userName, password])
+		execService.exec(["user/change-mysql-password", userName, password])
 	}
     
     def createUser(def userName, def title) {
-		execService.exec(["user/add.sh", userName, title])
+		execService.exec(["user/add", userName, title])
     }
     
     def createRoot(def userName, def root) {
         userName = getuserName(userName)
         
-        execService.exec(["user/create-root.sh", userName, root])
+        execService.exec(["user/create-root", userName, root])
     }
 
 	def deleteAccount(def userName) {
-		execService.exec(["user/del.sh", userName])
+		execService.exec(["user/del", userName])
 	}
 }
