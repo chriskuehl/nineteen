@@ -1,6 +1,6 @@
 #!/bin/sh
 USER="$1"
-HOME="/home/$1"
+HOME="/home/$USER"
 NT="$HOME/.nineteen"
 
 ls "$NT/domains/" |
