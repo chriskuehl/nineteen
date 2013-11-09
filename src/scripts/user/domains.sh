@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 USER="$1"
 HOME="/home/$USER"
 NT="$HOME/.nineteen"

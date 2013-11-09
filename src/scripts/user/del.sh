@@ -1,5 +1,4 @@
-#!/bin/sh
-#!/bin/sh
+#!/bin/bash
 UNAME="$1"
 DATESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 
