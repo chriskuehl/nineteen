@@ -64,7 +64,8 @@
     <ul>
       <li><strong>Disk Usage:</strong> ${formatBytes([bytes: account.diskUsage])}</li>
       <li><strong>Database Usage:</strong> ${formatBytes([bytes: account.databaseUsage])}</li>
-    </ul>
+  </ul>
+  <p>Stats are cached and only updated every 24 hours.</p>
     
     <hr />
     
